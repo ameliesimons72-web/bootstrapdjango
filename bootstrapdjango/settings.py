@@ -39,14 +39,17 @@ ALLOWED_HOSTS = [
     host.strip()
     for host in os.environ.get(
         'DJANGO_ALLOWED_HOSTS',
-        'bootstrapdjango-p6t2.onrender.com,localhost,127.0.0.1,[::1]',
+        'bootstrapdjango-123.onrender.com,localhost,127.0.0.1,[::1]',
     ).split(',')
     if host.strip()
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     origin.strip()
-    for origin in os.environ.get('DJANGO_CSRF_TRUSTED_ORIGINS', '').split(',')
+    for origin in os.environ.get(
+        'DJANGO_CSRF_TRUSTED_ORIGINS',
+        'https://bootstrapdjango-123.onrender.com',
+    ).split(',')
     if origin.strip()
 ]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
